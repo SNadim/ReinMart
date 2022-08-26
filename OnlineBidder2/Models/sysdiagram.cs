@@ -12,16 +12,12 @@ namespace OnlineBidder2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class placeBid
+    public partial class sysdiagram
     {
-        public int bidId { get; set; }
-        public Nullable<System.DateTime> BidDate { get; set; }
-        public string HighestBid { get; set; }
-        public Nullable<int> buyerId { get; set; }
-        public Nullable<int> productId { get; set; }
-    
-        public virtual Bag Bag { get; set; }
-        public virtual user user { get; set; }
-        public virtual buyer buyer { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

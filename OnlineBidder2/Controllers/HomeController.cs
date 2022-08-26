@@ -108,19 +108,7 @@ namespace OnlineBidder2.Controllers
             return RedirectToAction("Login");
         }
     
-    public ActionResult LoggedIn()
-        {
-            
-            if (Session["userId"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
 
-        }
 
         [HttpGet]
         public ActionResult Register()
@@ -136,18 +124,19 @@ namespace OnlineBidder2.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(user u,  HttpPostedFileBase files)
+        public ActionResult Register(HttpPostedFileBase files, user u)
         {
             if (ModelState.IsValid)
             {
-                if(files != null && files.ContentLength>0)
+                if(files?.ContentLength>0)
                 {
                     string filename = Path.GetFileName(files.FileName);
                     filename = filename + DateTime.Now.ToString("yymmssfff");
-                    string imagePath = Path.Combine(Server.MapPath("~/UserImages/"), filename);
+                    string imagePath = Path.Combine(Server.MapPath("~/assets/img/UserImages/"), filename);
                     files.SaveAs(imagePath);
-                    u.userImage = "~/UserImages/" + filename;
+                    u.userImage = "~/assets/img/UserImages/" + filename;
                     ViewBag.Message = u.userImage;
+                    return RedirectToAction("Index", "Home");
                 }
                 
                 u.status = "User";
@@ -157,6 +146,21 @@ namespace OnlineBidder2.Controllers
             ModelState.Clear();
             ViewBag.Message = u.userName + " successfully registered";
             return View();
+        }
+
+
+
+
+        public ActionResult SingleProduct()
+        {
+
+            if (Request.Cookies["user"] == null)
+            {
+                return View();
+
+            }
+            else return RedirectToAction("Index", "Home");
+
         }
 
 
