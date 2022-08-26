@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aee32741c4c5410081220ff07a7763e8" Name="Diagram1">
+        <EntityTypeShape EntityType="REINMARTModel.Bag" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="REINMARTModel.placeBid" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="REINMARTModel.product" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="REINMARTModel.user" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="REINMARTModel.FK__placeBid__produc__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="REINMARTModel.FK__users__bagId__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="REINMARTModel.FK__placeBid__buyerI__0DAF0CB0" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
