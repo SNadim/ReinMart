@@ -6,7 +6,7 @@
 
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -43,14 +43,14 @@
     <div class="form-group mt-3">
         @Html.LabelFor(model => model.userImage, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input type="file" name="userImage" />
+            <input type="file" name="file" id="file"/>
         </div>
     </div>
 
 
 
     <div class="form-group mt-4">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-offset-2 col-md-10 mt-3">
             <input type="submit" value="Register" class="btn btn-outline-success" />
         </div>
     </div>

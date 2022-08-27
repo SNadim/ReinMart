@@ -12,23 +12,24 @@ namespace OnlineBidder2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Bag
+    public partial class buyer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Bag()
+        public buyer()
         {
             this.placeBids = new HashSet<placeBid>();
-            this.users = new HashSet<user>();
-            this.buyers = new HashSet<buyer>();
         }
     
-        public int bagId { get; set; }
+        public int buyerId { get; set; }
+        public string buyerName { get; set; }
+        public string buyerMail { get; set; }
+        public string status { get; set; }
+        public string password { get; set; }
+        public string image { get; set; }
+        public Nullable<int> bagId { get; set; }
     
+        public virtual Bag Bag { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<placeBid> placeBids { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<user> users { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<buyer> buyers { get; set; }
     }
 }

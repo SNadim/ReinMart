@@ -73,7 +73,7 @@ namespace OnlineBidder2.Controllers
 
         [HttpPost]
         public ActionResult Edit(HttpPostedFileBase file, product emp)
-        {
+        { 
             if (ModelState.IsValid)
             {
                 if (file != null)

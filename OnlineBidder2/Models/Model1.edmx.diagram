@@ -12,6 +12,10 @@
         <AssociationConnector Association="REINMARTModel.FK__placeBid__produc__145C0A3F" ManuallyRouted="false" />
         <AssociationConnector Association="REINMARTModel.FK__users__bagId__1920BF5C" ManuallyRouted="false" />
         <AssociationConnector Association="REINMARTModel.FK__placeBid__buyerI__0DAF0CB0" />
+        <EntityTypeShape EntityType="REINMARTModel.buyer" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="REINMARTModel.sysdiagram" Width="1.5" PointX="7.375" PointY="0.75" />
+        <AssociationConnector Association="REINMARTModel.FK__buyer__bagId__0EA330E9" />
+        <AssociationConnector Association="REINMARTModel.FK__placeBid__buyerI__1367E606" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

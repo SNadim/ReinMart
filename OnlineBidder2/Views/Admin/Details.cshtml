@@ -3,56 +3,56 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="container mt-4">
+    <h2>Product Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.productName)
+            </dt>
 
-<div>
-    <h4>product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.productName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.productName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.productName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StartingPrice)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartingPrice)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StartingPrice)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartingPrice)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.image)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.image)
-        </dt>
+            <dd>
+                <img src="@Url.Content(Model.image)" />
+            </dd>
 
-        <dd>
-            <img src="@Url.Content(Model.image)"/>
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.status)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.status)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.status)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.status)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.productId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.productId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

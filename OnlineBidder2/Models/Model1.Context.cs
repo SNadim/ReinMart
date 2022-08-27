@@ -15,8 +15,6 @@ namespace OnlineBidder2.Models
     
     public partial class REINMARTEntities : DbContext
     {
-        internal object product;
-
         public REINMARTEntities()
             : base("name=REINMARTEntities")
         {
@@ -31,5 +29,7 @@ namespace OnlineBidder2.Models
         public virtual DbSet<placeBid> placeBids { get; set; }
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<buyer> buyers { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
