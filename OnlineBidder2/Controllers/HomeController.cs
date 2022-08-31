@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -57,6 +58,22 @@ namespace OnlineBidder2.Controllers
         public ActionResult Shop()
         {
             return View();
+        }
+
+        public ActionResult SingleProduct(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var product = db.products.Find(id);
+            //Session["imgPath"] = product.image;
+
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
         }
         [HttpGet]
         public ActionResult Login()
