@@ -42,6 +42,13 @@
             <input type="submit" value="Login" class="btn btn-outline-success" />
         </div>
     </div>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="form-group">
+            <div class="col-md-10">@ViewBag.Message</div>
+        </div>
+    }
 </div>
 }
 

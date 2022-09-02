@@ -11,6 +11,7 @@ namespace OnlineBidder2.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.Web;
     
     public partial class user
     {
@@ -26,6 +27,8 @@ namespace OnlineBidder2.Models
         public string status { get; set; }
         public string userPassword { get; set; }
         public string userImage { get; set; }
+
+        public HttpPostedFileBase ImageFile { get; set; }   
         public Nullable<int> bagId { get; set; }
     
         public virtual Bag Bag { get; set; }
