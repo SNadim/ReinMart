@@ -7,7 +7,7 @@
     <h2>Edit The Product Informations</h2>
 
 
-    @using (Html.BeginForm("Edit", "Addproduct", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
@@ -64,6 +64,12 @@
                 </div>
             </div>
         </div>
+        if (ViewBag.Message != null)
+        {
+            <div class="form-group">
+                <div class="col-md-10">@ViewBag.Message</div>
+            </div>
+        }
     }
 
     <div>

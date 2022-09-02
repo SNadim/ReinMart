@@ -31,7 +31,7 @@ namespace OnlineBidder2.Controllers
         public ActionResult Create(HttpPostedFileBase file, product emp)
         {
             string filename = Path.GetFileName(file.FileName);
-            string _filename = DateTime.Now.ToString("yymmssfff");
+            //string _filename = DateTime.Now.ToString("yymmssfff");
             string extension = Path.GetExtension(file.FileName);
             string path = Path.Combine(Server.MapPath("~/assets/img/product/"), filename);
             emp.image = "~/assets/img/product/" + filename;
@@ -43,13 +43,13 @@ namespace OnlineBidder2.Controllers
                     if (db.SaveChanges() > 0)
                     {
                         file.SaveAs(path);
-                        ViewBag.msg = "Record Added";
+                        ViewBag.Message = "Record Added";
                         ModelState.Clear();
                     }
                 }
                 else
                 {
-                    ViewBag.msg = "Size is not valid";
+                    ViewBag.Message = "Size is not valid";
                 }
             }
             return View();
@@ -76,13 +76,13 @@ namespace OnlineBidder2.Controllers
         { 
             if (ModelState.IsValid)
             {
-                if (file != null)
+                if (file != null)// image is given
                 {
                     string filename = Path.GetFileName(file.FileName);
                     string _filename = DateTime.Now.ToString("yymmssfff");
                     string extension = Path.GetExtension(file.FileName);
-                    string path = Path.Combine(Server.MapPath("~/assets/img/product/"), _filename);
-                    emp.image = "~/assets/img/product/" + _filename;
+                    string path = Path.Combine(Server.MapPath("~/assets/img/product/"), filename);
+                    emp.image = "~/assets/img/product/" + filename;
                     if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png") ;
                     {
                         if (file.ContentLength <= 1000000)
@@ -96,28 +96,29 @@ namespace OnlineBidder2.Controllers
                                 {
                                     System.IO.File.Delete(oldImgPath);
                                 }
-                                TempData["msg"] = "Record updated";
-                                //ViewBag.msg = "Record Added";
-                                //ModelState.Clear();
+
+                                ViewBag.Message = "Data has been updated";
+                                ModelState.Clear();
                             }
                         }
                         else
                         {
-                            ViewBag.msg = "Size is not valid";
+                            ViewBag.Message = "Image Size is not valid. Please Change It.";
                         }
                     }
                 }
-            }
-            else
-            {
-                emp.image = Session["imgPath"].ToString();
-                db.Entry(emp).State = EntityState.Modified;
-                if (db.SaveChanges() > 0)
+                else // image is not given
                 {
-                    TempData["msg"] = "Data Updated";
-                    return RedirectToAction("Index");
+                    emp.image = Session["imgPath"].ToString();
+                    db.Entry(emp).State = EntityState.Modified;
+                    if (db.SaveChanges() > 0)
+                    {
+                        ViewBag.Message = "Data has been updated";
+                        return RedirectToAction("Index");
+                    }
                 }
             }
+            
 
             return View();
         }
@@ -159,7 +160,7 @@ namespace OnlineBidder2.Controllers
                 {
                     System.IO.File.Delete(currentimg);
                 }
-                TempData["msg"] = "Data deleted!";
+                TempData["Message"] = "Data deleted!";
                 return RedirectToAction("Index");
             }
             return View();
