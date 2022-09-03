@@ -377,7 +377,6 @@
     <Content Include="assets\webfonts\slick.eot" />
     <Content Include="assets\webfonts\slick.ttf" />
     <Content Include="assets\webfonts\slick.woff" />
-    <Content Include="Views\Home\Shop.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
@@ -385,6 +384,7 @@
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\UserProfile.cshtml" />
+    <Content Include="Views\Home\SingleProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

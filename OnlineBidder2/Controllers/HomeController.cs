@@ -12,6 +12,9 @@ namespace OnlineBidder2.Controllers
     public class HomeController : Controller
     {
         REINMARTEntities db = new REINMARTEntities();
+        
+        
+
         public ActionResult Index(int? page)
         {
             
@@ -47,13 +50,10 @@ namespace OnlineBidder2.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-            return View();
+            return View(); 
+            
         }
 
-        public ActionResult Shop()
-        {
-            return View();
-        }
         [HttpGet]
         public ActionResult Login()
         {
@@ -151,9 +151,6 @@ namespace OnlineBidder2.Controllers
             return View();
         }
 
-
-
-
         public ActionResult UserProfile(int? id)
         {
 
@@ -173,12 +170,36 @@ namespace OnlineBidder2.Controllers
         [HttpPost]
         public ActionResult UserProfile(HttpPostedFileBase file, user u)
         {
-
             return View();
-
         }
 
 
+        public ActionResult SingleProduct(int? id)
+        {
+            if (Request.Cookies["user"] != null)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var product = db.products.Find(id);
+                //Session["imgPath"] = product.image;
 
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(product);
+
+            }else return RedirectToAction("Login", "Home");
+            
+        }
+
+        [HttpPost]
+        public ActionResult SingleProduct(product p)
+        {
+            return View();
+
+        }
     }
 }
