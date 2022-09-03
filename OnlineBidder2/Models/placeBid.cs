@@ -21,7 +21,6 @@ namespace OnlineBidder2.Models
         public Nullable<int> productId { get; set; }
     
         public virtual Bag Bag { get; set; }
-        public virtual user user { get; set; }
         public virtual buyer buyer { get; set; }
     }
 }

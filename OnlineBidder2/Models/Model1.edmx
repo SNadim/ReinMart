@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="REINMARTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="REINMARTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bag">
           <Key>
             <PropertyRef Name="bagId" />
@@ -44,16 +44,6 @@
           <Property Name="image" Type="varchar" MaxLength="255" />
           <Property Name="status" Type="varchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="users">
           <Key>
             <PropertyRef Name="userId" />
@@ -66,7 +56,7 @@
           <Property Name="userImage" Type="varchar" MaxLength="255" />
           <Property Name="bagId" Type="int" />
         </EntityType>
-        <Association Name="FK__buyer__bagId__0EA330E9">
+        <Association Name="FK__buyer__bagId__108B795B">
           <End Role="Bag" Type="Self.Bag" Multiplicity="0..1" />
           <End Role="buyer" Type="Self.buyer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -78,7 +68,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__placeBid__buyerI__1367E606">
+        <Association Name="FK__placeBid__buyerI__117F9D94">
           <End Role="buyer" Type="Self.buyer" Multiplicity="0..1" />
           <End Role="placeBid" Type="Self.placeBid" Multiplicity="*" />
           <ReferentialConstraint>
@@ -90,7 +80,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__placeBid__produc__145C0A3F">
+        <Association Name="FK__placeBid__produc__1273C1CD">
           <End Role="Bag" Type="Self.Bag" Multiplicity="0..1" />
           <End Role="placeBid" Type="Self.placeBid" Multiplicity="*" />
           <ReferentialConstraint>
@@ -102,7 +92,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__users__bagId__1920BF5C">
+        <Association Name="FK__users__bagId__1367E606">
           <End Role="Bag" Type="Self.Bag" Multiplicity="0..1" />
           <End Role="users" Type="Self.users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -119,26 +109,26 @@
           <EntitySet Name="buyer" EntityType="Self.buyer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="placeBid" EntityType="Self.placeBid" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__buyer__bagId__0EA330E9" Association="Self.FK__buyer__bagId__0EA330E9">
+          <AssociationSet Name="FK__buyer__bagId__108B795B" Association="Self.FK__buyer__bagId__108B795B">
             <End Role="Bag" EntitySet="Bag" />
             <End Role="buyer" EntitySet="buyer" />
           </AssociationSet>
-          <AssociationSet Name="FK__placeBid__buyerI__1367E606" Association="Self.FK__placeBid__buyerI__1367E606">
+          <AssociationSet Name="FK__placeBid__buyerI__117F9D94" Association="Self.FK__placeBid__buyerI__117F9D94">
             <End Role="buyer" EntitySet="buyer" />
             <End Role="placeBid" EntitySet="placeBid" />
           </AssociationSet>
-          <AssociationSet Name="FK__placeBid__produc__145C0A3F" Association="Self.FK__placeBid__produc__145C0A3F">
+          <AssociationSet Name="FK__placeBid__produc__1273C1CD" Association="Self.FK__placeBid__produc__1273C1CD">
             <End Role="Bag" EntitySet="Bag" />
             <End Role="placeBid" EntitySet="placeBid" />
           </AssociationSet>
-          <AssociationSet Name="FK__users__bagId__1920BF5C" Association="Self.FK__users__bagId__1920BF5C">
+          <AssociationSet Name="FK__users__bagId__1367E606" Association="Self.FK__users__bagId__1367E606">
             <End Role="Bag" EntitySet="Bag" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="REINMARTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -147,9 +137,23 @@
             <PropertyRef Name="bagId" />
           </Key>
           <Property Name="bagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="placeBids" Relationship="Self.FK__placeBid__produc__145C0A3F" FromRole="Bag" ToRole="placeBid" />
-          <NavigationProperty Name="users" Relationship="Self.FK__users__bagId__1920BF5C" FromRole="Bag" ToRole="users" />
-          <NavigationProperty Name="buyers" Relationship="REINMARTModel.FK__buyer__bagId__0EA330E9" FromRole="Bag" ToRole="buyer" />
+          <NavigationProperty Name="buyers" Relationship="Self.FK__buyer__bagId__108B795B" FromRole="Bag" ToRole="buyer" />
+          <NavigationProperty Name="placeBids" Relationship="Self.FK__placeBid__produc__1273C1CD" FromRole="Bag" ToRole="placeBid" />
+          <NavigationProperty Name="users" Relationship="Self.FK__users__bagId__1367E606" FromRole="Bag" ToRole="users" />
+        </EntityType>
+        <EntityType Name="buyer">
+          <Key>
+            <PropertyRef Name="buyerId" />
+          </Key>
+          <Property Name="buyerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="buyerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="buyerMail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="bagId" Type="Int32" />
+          <NavigationProperty Name="Bag" Relationship="Self.FK__buyer__bagId__108B795B" FromRole="buyer" ToRole="Bag" />
+          <NavigationProperty Name="placeBids" Relationship="Self.FK__placeBid__buyerI__117F9D94" FromRole="buyer" ToRole="placeBid" />
         </EntityType>
         <EntityType Name="placeBid">
           <Key>
@@ -160,9 +164,8 @@
           <Property Name="HighestBid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="buyerId" Type="Int32" />
           <Property Name="productId" Type="Int32" />
-          <NavigationProperty Name="Bag" Relationship="Self.FK__placeBid__produc__145C0A3F" FromRole="placeBid" ToRole="Bag" />
-          <NavigationProperty Name="user" Relationship="REINMARTModel.FK__placeBid__buyerI__0DAF0CB0" FromRole="placeBid" ToRole="user" />
-          <NavigationProperty Name="buyer" Relationship="REINMARTModel.FK__placeBid__buyerI__1367E606" FromRole="placeBid" ToRole="buyer" />
+          <NavigationProperty Name="Bag" Relationship="Self.FK__placeBid__produc__1273C1CD" FromRole="placeBid" ToRole="Bag" />
+          <NavigationProperty Name="buyer" Relationship="Self.FK__placeBid__buyerI__117F9D94" FromRole="placeBid" ToRole="buyer" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -186,10 +189,21 @@
           <Property Name="userPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="userImage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="bagId" Type="Int32" />
-          <NavigationProperty Name="Bag" Relationship="Self.FK__users__bagId__1920BF5C" FromRole="users" ToRole="Bag" />
-          <NavigationProperty Name="placeBids" Relationship="REINMARTModel.FK__placeBid__buyerI__0DAF0CB0" FromRole="user" ToRole="placeBid" />
+          <NavigationProperty Name="Bag" Relationship="Self.FK__users__bagId__1367E606" FromRole="users" ToRole="Bag" />
         </EntityType>
-        <Association Name="FK__placeBid__produc__145C0A3F">
+        <Association Name="FK__buyer__bagId__108B795B">
+          <End Role="Bag" Type="Self.Bag" Multiplicity="0..1" />
+          <End Role="buyer" Type="Self.buyer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bag">
+              <PropertyRef Name="bagId" />
+            </Principal>
+            <Dependent Role="buyer">
+              <PropertyRef Name="bagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__placeBid__produc__1273C1CD">
           <End Role="Bag" Type="Self.Bag" Multiplicity="0..1" />
           <End Role="placeBid" Type="Self.placeBid" Multiplicity="*" />
           <ReferentialConstraint>
@@ -201,7 +215,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__users__bagId__1920BF5C">
+        <Association Name="FK__users__bagId__1367E606">
           <End Role="Bag" Type="Self.Bag" Multiplicity="0..1" />
           <End Role="users" Type="Self.user" Multiplicity="*" />
           <ReferentialConstraint>
@@ -213,85 +227,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="REINMARTEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Bags" EntityType="Self.Bag" />
-          <EntitySet Name="placeBids" EntityType="Self.placeBid" />
-          <EntitySet Name="products" EntityType="Self.product" />
-          <EntitySet Name="users" EntityType="Self.user" />
-          <AssociationSet Name="FK__placeBid__produc__145C0A3F" Association="Self.FK__placeBid__produc__145C0A3F">
-            <End Role="Bag" EntitySet="Bags" />
-            <End Role="placeBid" EntitySet="placeBids" />
-          </AssociationSet>
-          <AssociationSet Name="FK__users__bagId__1920BF5C" Association="Self.FK__users__bagId__1920BF5C">
-            <End Role="Bag" EntitySet="Bags" />
-            <End Role="users" EntitySet="users" />
-          </AssociationSet>
-          <AssociationSet Name="FK__placeBid__buyerI__0DAF0CB0" Association="REINMARTModel.FK__placeBid__buyerI__0DAF0CB0">
-            <End Role="user" EntitySet="users" />
-            <End Role="placeBid" EntitySet="placeBids" />
-          </AssociationSet>
-          <EntitySet Name="buyers" EntityType="REINMARTModel.buyer" />
-          <EntitySet Name="sysdiagrams" EntityType="REINMARTModel.sysdiagram" />
-          <AssociationSet Name="FK__buyer__bagId__0EA330E9" Association="REINMARTModel.FK__buyer__bagId__0EA330E9">
-            <End Role="Bag" EntitySet="Bags" />
-            <End Role="buyer" EntitySet="buyers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__placeBid__buyerI__1367E606" Association="REINMARTModel.FK__placeBid__buyerI__1367E606">
-            <End Role="buyer" EntitySet="buyers" />
-            <End Role="placeBid" EntitySet="placeBids" />
-          </AssociationSet>
-        </EntityContainer>
-        <Association Name="FK__placeBid__buyerI__0DAF0CB0">
-          <End Type="REINMARTModel.user" Role="user" Multiplicity="0..1" />
-          <End Type="REINMARTModel.placeBid" Role="placeBid" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="userId" />
-            </Principal>
-            <Dependent Role="placeBid">
-              <PropertyRef Name="buyerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="buyer">
-          <Key>
-            <PropertyRef Name="buyerId" />
-          </Key>
-          <Property Name="buyerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="buyerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="buyerMail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="bagId" Type="Int32" />
-          <NavigationProperty Name="Bag" Relationship="REINMARTModel.FK__buyer__bagId__0EA330E9" FromRole="buyer" ToRole="Bag" />
-          <NavigationProperty Name="placeBids" Relationship="REINMARTModel.FK__placeBid__buyerI__1367E606" FromRole="buyer" ToRole="placeBid" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <Association Name="FK__buyer__bagId__0EA330E9">
-          <End Type="REINMARTModel.Bag" Role="Bag" Multiplicity="0..1" />
-          <End Type="REINMARTModel.buyer" Role="buyer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Bag">
-              <PropertyRef Name="bagId" />
-            </Principal>
-            <Dependent Role="buyer">
-              <PropertyRef Name="bagId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__placeBid__buyerI__1367E606">
-          <End Type="REINMARTModel.buyer" Role="buyer" Multiplicity="0..1" />
-          <End Type="REINMARTModel.placeBid" Role="placeBid" Multiplicity="*" />
+        <Association Name="FK__placeBid__buyerI__117F9D94">
+          <End Role="buyer" Type="Self.buyer" Multiplicity="0..1" />
+          <End Role="placeBid" Type="Self.placeBid" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="buyer">
               <PropertyRef Name="buyerId" />
@@ -301,6 +239,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="REINMARTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bags" EntityType="Self.Bag" />
+          <EntitySet Name="buyers" EntityType="Self.buyer" />
+          <EntitySet Name="placeBids" EntityType="Self.placeBid" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="FK__buyer__bagId__108B795B" Association="Self.FK__buyer__bagId__108B795B">
+            <End Role="Bag" EntitySet="Bags" />
+            <End Role="buyer" EntitySet="buyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__placeBid__produc__1273C1CD" Association="Self.FK__placeBid__produc__1273C1CD">
+            <End Role="Bag" EntitySet="Bags" />
+            <End Role="placeBid" EntitySet="placeBids" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__bagId__1367E606" Association="Self.FK__users__bagId__1367E606">
+            <End Role="Bag" EntitySet="Bags" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__placeBid__buyerI__117F9D94" Association="Self.FK__placeBid__buyerI__117F9D94">
+            <End Role="buyer" EntitySet="buyers" />
+            <End Role="placeBid" EntitySet="placeBids" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -310,6 +271,19 @@
           <EntitySetMapping Name="Bags">
             <EntityTypeMapping TypeName="REINMARTModel.Bag">
               <MappingFragment StoreEntitySet="Bag">
+                <ScalarProperty Name="bagId" ColumnName="bagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="buyers">
+            <EntityTypeMapping TypeName="REINMARTModel.buyer">
+              <MappingFragment StoreEntitySet="buyer">
+                <ScalarProperty Name="buyerId" ColumnName="buyerId" />
+                <ScalarProperty Name="buyerName" ColumnName="buyerName" />
+                <ScalarProperty Name="buyerMail" ColumnName="buyerMail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="bagId" ColumnName="bagId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -347,30 +321,6 @@
                 <ScalarProperty Name="userPassword" ColumnName="userPassword" />
                 <ScalarProperty Name="userImage" ColumnName="userImage" />
                 <ScalarProperty Name="bagId" ColumnName="bagId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="buyers">
-            <EntityTypeMapping TypeName="REINMARTModel.buyer">
-              <MappingFragment StoreEntitySet="buyer">
-                <ScalarProperty Name="bagId" ColumnName="bagId" />
-                <ScalarProperty Name="image" ColumnName="image" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="buyerMail" ColumnName="buyerMail" />
-                <ScalarProperty Name="buyerName" ColumnName="buyerName" />
-                <ScalarProperty Name="buyerId" ColumnName="buyerId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="REINMARTModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

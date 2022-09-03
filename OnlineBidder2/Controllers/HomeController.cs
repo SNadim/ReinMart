@@ -130,6 +130,7 @@ namespace OnlineBidder2.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 if(u.ImageFile.ContentLength<=1000)
                 {
 

@@ -4,18 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="aee32741c4c5410081220ff07a7763e8" Name="Diagram1">
+      <Diagram DiagramId="ea729ab10be047e28706a83788e3a15a" Name="Diagram1">
         <EntityTypeShape EntityType="REINMARTModel.Bag" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="REINMARTModel.buyer" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="REINMARTModel.placeBid" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="REINMARTModel.product" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="REINMARTModel.user" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <AssociationConnector Association="REINMARTModel.FK__placeBid__produc__145C0A3F" ManuallyRouted="false" />
-        <AssociationConnector Association="REINMARTModel.FK__users__bagId__1920BF5C" ManuallyRouted="false" />
-        <AssociationConnector Association="REINMARTModel.FK__placeBid__buyerI__0DAF0CB0" />
-        <EntityTypeShape EntityType="REINMARTModel.buyer" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="REINMARTModel.sysdiagram" Width="1.5" PointX="7.375" PointY="0.75" />
-        <AssociationConnector Association="REINMARTModel.FK__buyer__bagId__0EA330E9" />
-        <AssociationConnector Association="REINMARTModel.FK__placeBid__buyerI__1367E606" />
+        <AssociationConnector Association="REINMARTModel.FK__buyer__bagId__108B795B" ManuallyRouted="false" />
+        <AssociationConnector Association="REINMARTModel.FK__placeBid__produc__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="REINMARTModel.FK__users__bagId__1367E606" ManuallyRouted="false" />
+        <AssociationConnector Association="REINMARTModel.FK__placeBid__buyerI__117F9D94" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

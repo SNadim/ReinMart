@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace OnlineBidder2.Models
 {
     using System;
@@ -15,24 +16,16 @@ namespace OnlineBidder2.Models
     
     public partial class user
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public user()
-        {
-            this.placeBids = new HashSet<placeBid>();
-        }
-    
         public int userId { get; set; }
         public string userName { get; set; }
         public string userMail { get; set; }
         public string status { get; set; }
         public string userPassword { get; set; }
         public string userImage { get; set; }
-
-        public HttpPostedFileBase ImageFile { get; set; }   
         public Nullable<int> bagId { get; set; }
     
         public virtual Bag Bag { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<placeBid> placeBids { get; set; }
+
+        public HttpPostedFile ImageFile { get; set; }
     }
 }
