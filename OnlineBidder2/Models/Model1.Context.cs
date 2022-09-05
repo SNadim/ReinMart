@@ -26,7 +26,6 @@ namespace OnlineBidder2.Models
         }
     
         public virtual DbSet<Bag> Bags { get; set; }
-        public virtual DbSet<buyer> buyers { get; set; }
         public virtual DbSet<placeBid> placeBids { get; set; }
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<user> users { get; set; }

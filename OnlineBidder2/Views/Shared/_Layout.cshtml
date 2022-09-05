@@ -52,15 +52,24 @@
                         <li class="nav-item">
                             <a class="nav-link" href="https://localhost:44363/">Home</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://localhost:44363/Home/OnGoingBdding">On Going Bidding</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="https://localhost:44363/Home/About">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://localhost:44363/Home/Shop">Shop</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="https://localhost:44363/Home/Contact">Contact</a>
                         </li>
+                        @if (Request.Cookies["status"] != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://localhost:44363/Admin/Index">Admin</a>
+                            </li>
+                        }
 
                         @if (Request.Cookies["user"] != null)
                         {
@@ -68,7 +77,8 @@
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     @Html.ActionLink("Profile", "UserProfile", new { id = Request.Cookies["user"].Value })
-                                    <a href="#" class="dropdown-item">Cart</a>
+                                    <div class="dropdown-divider"></div>
+                                    @Html.ActionLink("Add Cart", "AddToCart")
                                     <div class="dropdown-divider"></div>
                                     @Html.ActionLink("Logout", "Logout", "Home")
                                 </div>

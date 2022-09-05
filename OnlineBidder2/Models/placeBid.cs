@@ -17,10 +17,10 @@ namespace OnlineBidder2.Models
         public int bidId { get; set; }
         public Nullable<System.DateTime> BidDate { get; set; }
         public string HighestBid { get; set; }
-        public Nullable<int> buyerId { get; set; }
+        public Nullable<int> userId { get; set; }
         public Nullable<int> productId { get; set; }
     
-        public virtual Bag Bag { get; set; }
-        public virtual buyer buyer { get; set; }
+        public virtual product product { get; set; }
+        public virtual user user { get; set; }
     }
 }

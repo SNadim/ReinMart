@@ -8,26 +8,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="buyers">
-      <EntityTypeMapping TypeName="REINMARTModel.buyer">
-        <MappingFragment StoreEntitySet="buyer">
-          <ScalarProperty Name="buyerId" ColumnName="buyerId" />
-          <ScalarProperty Name="buyerName" ColumnName="buyerName" />
-          <ScalarProperty Name="buyerMail" ColumnName="buyerMail" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="image" ColumnName="image" />
-          <ScalarProperty Name="bagId" ColumnName="bagId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="placeBids">
       <EntityTypeMapping TypeName="REINMARTModel.placeBid">
         <MappingFragment StoreEntitySet="placeBid">
           <ScalarProperty Name="bidId" ColumnName="bidId" />
           <ScalarProperty Name="BidDate" ColumnName="BidDate" />
           <ScalarProperty Name="HighestBid" ColumnName="HighestBid" />
-          <ScalarProperty Name="buyerId" ColumnName="buyerId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="productId" ColumnName="productId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -41,6 +28,7 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="image" ColumnName="image" />
           <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="EndBidTime" ColumnName="EndBidTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
